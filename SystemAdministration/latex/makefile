@@ -1,5 +1,5 @@
 #makefile for pdflatex
-
+#modifica di prova limiti 
 
 outputdir=../pdf
 texfile=Master

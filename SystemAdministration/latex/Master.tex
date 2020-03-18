@@ -1,0 +1,43 @@
+\documentclass[12pt]{article}
+
+\title{Amministrazione di Sistemi}
+\author{Daniel}
+\date{\today{}}
+
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{float}
+\usepackage{fancyvrb}
+\usepackage{listings}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\definecolor{lightgray}{gray}{0.85}
+
+
+% \titleformat{\paragraph}
+% {\bfseries}
+% {}
+% {0em}
+% {}[\titlerule]
+
+
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{black},
+  keywordstyle=\color{darkgray},
+  backgroundcolor = \color{lightgray}
+}
+
+
+\begin{document}
+	
+	\maketitle
+	\newpage
+	\tableofcontents
+	\newpage
+	\input{Command-line.tex}
+	\input{HardeningAccessControl.tex}
+	\input{Approfondimenti.tex}
+
+\end{document}

@@ -1,0 +1,79 @@
+\contentsline {section}{\numberline {1}Elementi di architettura Linux e Shell Scripting}{3}% 
+\contentsline {subsection}{\numberline {1.1}Command-line Interface}{3}% 
+\contentsline {subsubsection}{\numberline {1.1.1}Introduzione}{3}% 
+\contentsline {subsubsection}{\numberline {1.1.2}Comandi}{3}% 
+\contentsline {subparagraph}{Keyword}{3}% 
+\contentsline {subparagraph}{Built-in}{3}% 
+\contentsline {subparagraph}{Esterni}{3}% 
+\contentsline {subparagraph}{Alias}{3}% 
+\contentsline {subparagraph}{Funzioni}{3}% 
+\contentsline {subsubsection}{\numberline {1.1.3}Documentazione dei comandi}{4}% 
+\contentsline {subparagraph}{Categorie di man pages}{4}% 
+\contentsline {subparagraph}{Sintassi per l'accesso alle man pages}{4}% 
+\contentsline {subsubsection}{\numberline {1.1.4}Argomenti}{5}% 
+\contentsline {subsubsection}{\numberline {1.1.5}History e attivita'}{5}% 
+\contentsline {subsubsection}{\numberline {1.1.6}Comandi di base relativi al filesystem}{5}% 
+\contentsline {subparagraph}{Navigazione nel filesystem}{5}% 
+\contentsline {subparagraph}{\textbf {Tip}}{5}% 
+\contentsline {subsubsection}{\numberline {1.1.7}Shell expansion}{6}% 
+\contentsline {subparagraph}{1 - Tokenizzazione}{6}% 
+\contentsline {subparagraph}{2 - Primo token alias}{6}% 
+\contentsline {subparagraph}{3 - Primo token keyword}{6}% 
+\contentsline {subparagraph}{4 - Brace expansion}{7}% 
+\contentsline {subparagraph}{5 - Tilde expansion}{7}% 
+\contentsline {subparagraph}{6 - Parameter expansion}{7}% 
+\contentsline {subparagraph}{7 - Command substitution}{7}% 
+\contentsline {subparagraph}{8 - Arithmetic expansion}{7}% 
+\contentsline {subparagraph}{9 - Process substitution}{7}% 
+\contentsline {subparagraph}{10 - Word splitting}{8}% 
+\contentsline {subparagraph}{11 - Pathname expansion}{8}% 
+\contentsline {subparagraph}{12 - Quote removal ed esecuzione}{8}% 
+\contentsline {subsubsection}{\numberline {1.1.8}Tipologie di comandi e ricerca}{9}% 
+\contentsline {section}{\numberline {2}Hardening di base e controllo dell'accesso}{9}% 
+\contentsline {subsection}{\numberline {2.1}Introduzione alla sicurezza}{9}% 
+\contentsline {paragraph}{Confidentiality}{10}% 
+\contentsline {paragraph}{Integrity}{10}% 
+\contentsline {paragraph}{Availability}{10}% 
+\contentsline {subsubsection}{\numberline {2.1.1}Compromissione della sicurezza}{10}% 
+\contentsline {paragraph}{Social Engineering}{11}% 
+\contentsline {paragraph}{Software Vulnerabilities}{11}% 
+\contentsline {paragraph}{Distributed denial-of-service attacks (DDosS)}{11}% 
+\contentsline {paragraph}{Insider abuse}{11}% 
+\contentsline {paragraph}{Network, system, or application configuration errors}{11}% 
+\contentsline {subsubsection}{\numberline {2.1.2}Messa in sicurezza fisica}{12}% 
+\contentsline {subsection}{\numberline {2.2}Pianificare l'installazione del Sistema Operativo}{12}% 
+\contentsline {paragraph}{Distribuzione}{12}% 
+\contentsline {subsubsection}{\numberline {2.2.1}Organizzare dati e software}{13}% 
+\contentsline {subsubsection}{\numberline {2.2.2}Partizionamento}{13}% 
+\contentsline {paragraph}{Filesystem}{14}% 
+\contentsline {paragraph}{Linux}{14}% 
+\contentsline {paragraph}{Filesystem Hierarchy Standard, FHS}{15}% 
+\contentsline {paragraph}{Approfondimenti}{15}% 
+\contentsline {subsubsection}{\numberline {2.2.3}Booting}{15}% 
+\contentsline {paragraph}{First-stage (Finding, loading, and running bootstrapping code)}{15}% 
+\contentsline {paragraph}{Second-stage (Finding,loading, and running the OS kernel)}{16}% 
+\contentsline {paragraph}{Third-stage (Running startup scripts and system deamons)}{16}% 
+\contentsline {paragraph}{Fourth-stage (Maintaining process hygiene and managing system state transitions)}{17}% 
+\contentsline {subsubsection}{\numberline {2.2.4}Sicurezza}{17}% 
+\contentsline {paragraph}{Affidabilita' del software}{17}% 
+\contentsline {paragraph}{Chain of trust}{18}% 
+\contentsline {subsubsection}{\numberline {2.2.5}Paradigmi di trusted boot}{18}% 
+\contentsline {paragraph}{Trusted Boot}{18}% 
+\contentsline {paragraph}{Secure Boot}{19}% 
+\contentsline {subsection}{\numberline {2.3}Hardening di secondo livello}{20}% 
+\contentsline {subsubsection}{\numberline {2.3.1}Accesso alle risorse}{20}% 
+\contentsline {subsubsection}{\numberline {2.3.2}Autenticazione}{21}% 
+\contentsline {subsubsection}{\numberline {2.3.3}Gestione degli utenti}{22}% 
+\contentsline {paragraph}{\texttt {/etc/passwd}}{22}% 
+\contentsline {subsubsection}{\numberline {2.3.4}Password}{23}% 
+\contentsline {section}{\numberline {3}Approfondimenti}{23}% 
+\contentsline {subsection}{\numberline {3.1}Copy-on-write}{23}% 
+\contentsline {subsubsection}{\numberline {3.1.1}Introduzione}{23}% 
+\contentsline {subparagraph}{Tecnica}{23}% 
+\contentsline {subsubsection}{\numberline {3.1.2}VirtualBox}{23}% 
+\contentsline {subparagraph}{Utilizzo originale}{23}% 
+\contentsline {subparagraph}{VirtualBox Snapshot}{24}% 
+\contentsline {subsection}{\numberline {3.2}VirtualBox Configuration}{24}% 
+\contentsline {subsubsection}{\numberline {3.2.1}Machine Registry}{24}% 
+\contentsline {subsubsection}{\numberline {3.2.2}Media Registry}{24}% 
+\contentsline {subsection}{\numberline {3.3}Filesystem}{25}% 

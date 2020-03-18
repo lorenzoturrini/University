@@ -1,0 +1,13 @@
+# LaTeX ignore patterns
+University/**/*.aux
+University/**/*.dvi
+University/**/*.bak
+University/**/*.gz
+University/**/*.out 
+University/**/*.nav 
+University/**/*.log 
+University/**/*.fls 
+University/**/*.snm 
+University/**/*.toc 
+University/**/*.fdb* 
+University/**/*.aux

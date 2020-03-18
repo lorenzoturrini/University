@@ -1,2 +1,2 @@
 # University
-University related notes.
+University related notes and study materials.

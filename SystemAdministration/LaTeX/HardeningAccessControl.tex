@@ -231,7 +231,95 @@ dbus:x:81:81:System Message Bus:/:/sbin/nologin
 elliot:x:1001:1001:Elliot:/home/elliot:/bin/bash
 \end{lstlisting}
 
-Gli utenti e i gruppi possono essere creati rispettivamente utilizzando i comandi: \texttt{useradd} e \texttt{addgroup}. Entrambi i comandi supportano varie opzioni consultabili 
+I campi del file \texttt{/etc/passwd}\texttt{(-rw-r--r-- 1 root root)} contengono le seguenti informazioni:
+\begin{center}
+	\texttt{<Login Username>:<password>:<UID>:<GID>:<Description>:<HOME>:<Default Shell>}
+\end{center}
+
+\paragraph{\texttt{/etc/shadow}}
+Il campo della \emph{password} e' settato ad \texttt{x}. Storicamente, questo campo conteneva la versione cifrata della password utente. Cio' si e' rivelato poi essere un problema di sicurezza in quanto svariati programmi necessitavano l'accesso al file \texttt{/etc/passwd} per ottenere informazioni sugli utenti. Per questo motivo si e' reso necessario a rivedere questa policy. La soluzione adottata e' stata quella di spostare la password in un file separato: \texttt{/etc/shadow} accessibile solo a utenti e programmi con privilegi speciali (\emph{programma di login, passwd, etc\dots}).
+
+\begin{lstlisting}[language=bash,basicstyle=\ttfamily,frame=single,caption={Struttura di un file /etc/shadow},captionpos=b]
+$ sudo cat \etc\shadow
+elliot:\$1\$d/asfAHOADqe2kjq2eLQ@LOI:11627:0:99999:7:::
+\end{lstlisting}
+
+I campi del file \texttt{/etc/shadow}\texttt{(-rw------ 1 root root)} contengono le seguenti informazioni:
+\begin{itemize}
+	\item \texttt{<Login Username>}
+	\item \texttt{<Encrypted password>}
+	\item Days since January 1, 1970, tha the password was last changed
+	\item Minimum number of days before the password can be changed
+	\item Number of days before the password must be changed
+	\item Number of days before password expiration that the user is warned to change the password
+	\item Number of days after password expires before the account will be disabled
+	\item The date (stored as days since January 1, 1970) since the user account was disabled
+	\item Field reserved for future use.
+\end{itemize}
+
+Grazie all'utilizzo di questo sistema si riesce ad avere un controllo molto piu' accurato sulle password degli utenti. Si puo' controllare ogni quanto un utente debba cambiare la propria password e dopo quanto tempo disabilitare l'account relativo nel caso in cui cio' non venga fatto.
+
+\paragraph{Account di sistema e Root}
+L'utente \textbf{root} viene considerato l'account di amministrazione del sistema, al quale viene assegnato  assegnato sempre l'\textbf{UID} \textbf{0}. Come e' possibile notare, il sistema linux crea diversi account utenti adibiti a svariate funzioni. Questi non sono in realta' utenti effettivi ma prendon il nome di  \textbf{account di sistema}. Questi sono account speciali utilizzati dai servizi in esecuzione sul sistema per ottenere l'accesso alle risorse sul sistema. Tutti i servizi che vengon eseguiti in background mode necessitano di essere loggati al sistema linux utilizzando un account di sistema.
+
+Linux riserva gli UID sotto il 500 per gli account di sistema. Inoltre, alcuni servizi necessitano UID specifici per funzionare correttamente. Quando vengono creati account per utenti regolari, la maggior parte dei sistemi Linux assegnano i primi UID disponibili a partire dal 500.
+
+\paragraph{Gruppi}
+Gli account sono efficaci per controllare la sicurezza del singolo utente, ma poco funzionali per consentire a gruppi di utenti di condividere determinate risorse. Per ottenere cio', Linux si avvale di un altro concetto di sicurezza: i \textbf{gruppi}. Questi consentono a piu' utenti di condividere un insieme comune di permessi relativi ad un oggetto nel sistema, come un file, una directory o un device. Ogni gruppo ha un GID univoco, anche questo consiste di un valore numerico. Proprio come per gli account utenti, le informazioni sui gruppi sono salvate in un file di sistema: \texttt{/etc/group}. Questo contiene informazioni relative ad ogni gruppo sul sistema.
+
+\begin{lstlisting}[language=bash,basicstyle=\ttfamily,frame=single,caption={Struttura di un file /etc/group},captionpos=b]
+$ cat \etc\group
+root:x:0:root
+bin:x:1:root,bin,daemon
+daemon,bin,daemon
+sys:x:3:root,bin,adm
+adm:x:4:root,adm,daemon
+elliot:x:500:
+mysql:x:27:
+\end{lstlisting}
+
+I campi del file \texttt{/etc/group}\texttt{(-rw-r--r-- 1 root root)} contengono le seguenti informazioni:
+\begin{itemize}
+	\item \texttt{<Group Name>}
+	\item \texttt{<Group Password>}
+	\item \texttt{<Group ID>}
+	\item The list of user accounts that belong to the group
+\end{itemize}
+Cosi' come per gli UID, i Group ID vengono assegnati usando un formato speciale. I gruppi utilizzati per account di sistema sono assegnati GID inferiori a 500, e ai gruppi utenti vengono assegnati GID a partire dal 500.
+
+\paragraph{Tools}
+Gli utenti e i gruppi possono essere manipolati utilizzando i seguenti comandi: 
+
+\begin{center}
+\begin{tabular}{ll}
+	\textbf{Account Modification Utilities} & \\
+	\texttt{useradd <username>} & Creazione di un utente\\ 
+	\texttt{userdel <username>} & Rimozione di un utente\\ 
+	\texttt{usermod <username>} & Modifica di un utente\\ 
+	\texttt{passwd <username>} & Modifica la password di un utente - Lock/Unlock dell'account\\ 
+	\texttt{chsh -s <Shell Path> <username>} & Cambia la shell di default di un utente\\ 
+	\texttt{chage}  & Modifica il periodo di validita' temporale di una password \\ 
+	\\
+	\textbf{Group Modification Utilities} & \\
+	\texttt{groupadd <groupname>} & Creazione di un gruppo \\
+	\texttt{groupmod <groupname>} & Modifica di un gruppo \\ 
+	\\
+\end{tabular}
+\end{center}
+
+Entrambi i comandi supportano varie opzioni consultabili attraverso le \texttt{man pages}.
+
+\begin{center}
+	\begin{tabular}{ll}
+	\textbf{Identita' e Utenti} & \\
+	\texttt{whoami} & Riporta il proprio username \\
+	\texttt{id <username>} & Fornisce una serie di informazioni sull'identita' e sul gruppo di appartenenza dell'utente\\
+	\texttt{who} & Indica quali utenti sono attualmente connessi al sistema\\
+	\texttt{last} & Elenca uno storico dei collegamenti \\
+	\end{tabular}
+\end{center}
 
 \subsubsection{Password}
+\subsubsection{Proprieta' dei file e permessi}
+\subsubsection{Modelli di controllo dell'accesso}
 

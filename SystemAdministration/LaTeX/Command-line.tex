@@ -36,7 +36,7 @@ Questa tipicamente processa \textbf{comandi} e \textbf{argomenti}
 {\pagebreak}
 
 \subsubsection{Documentazione dei comandi}
-Per conoscere il funzionamento di una determata applicazione o di un comando esterno e' possibile fare 
+Per conoscere il funzionamento di una determinata applicazione o di un comando esterno e' possibile fare 
 rifermento a 'pagine di manuale' (man pages) relative al suo utilizzo e configurazione. 
 Il comando che permette di fare cio' e' \texttt{man}. L'installazione di un pacchetto software (applicazione)
 comprende le relative pagine di manuale, ad eccezione pero' dei comandi built-in in quanto gia' implementati 
@@ -77,23 +77,20 @@ Altre opzioni utili:
 
 \subsubsection{Argomenti}
 Ogni comando, sia built-in che esterno, puo' accedere ai caratteri che seguono la propria invocazione sulla
-command line, per fare cio' la shell inserire in memoria l'ARGV prima di generare il processo. Questi sono
+command line, per fare cio' la shell inserisce in memoria l'ARGV prima di generare il processo. Questi sono
 generalmente nella forma di gruppi di caratteri separati da spazi. Tra questi ne riconosciamo un particolare
 tipo, caratterizzato generalmente dal carattere prefisso \texttt{'-'} noto come \textbf{opzione}. Questo 
 generalmente non ' un vero e proprio dato da elaborare, ma piu' un modo di specificare una variante al 
-comportamento del comando che si sta chiamando. piu' opzioni possono essere solitamente raggruppate in un'unica
+comportamento del comando che si sta chiamando. Piu' opzioni possono essere solitamente raggruppate in un'unica
 stringa.
 
 \subsubsection{History e attivita'}
 \texttt{history} mostra la 'storia' di tutti i comandi eseguiti in un terminale. 
-E' possibile richiamare un comando
-utilizzando la freccia-su, facendo comparire quelli piu' recentemente utilizzati. Un altro approccio sfrutta
+E' possibile richiamare un comando utilizzando la freccia-su, facendo comparire quelli piu' recentemente utilizzati. Un altro approccio sfrutta
 la ricerca interattiva utilizzando un prompt \textbf{reverse-i-search} , attivabile con \texttt{CTRL-r}. 
 Una volta inviduato, lo si puo' lanciare direttamente (invio) o editare (freccie dx/sx). \\
-
 Un'altro comando interessante e' invece \texttt{script} il quale permette invece di catturare su un file 
-una sessione di lavoro, esattamente come compare a video, risultati compresi.
-
+una sessione di lavoro, esattamente come compare a video, risultati compresi.\\
 Per terminare una sessione con il terminale e' sufficiente digitare \texttt{exit} o premete \texttt{CRTL-d}.
 
 \subsubsection{Comandi di base relativi al filesystem} 
@@ -114,6 +111,7 @@ Per terminare una sessione con il terminale e' sufficiente digitare \texttt{exit
 		\hline
 	\end{tabular}
 \end{center}
+\noindent
 \subparagraph{Navigazione nel filesystem}
 E' importante ricordare che ogni directory di UNIX contiene due directory speciali:
 \begin{center}
@@ -124,7 +122,7 @@ E' importante ricordare che ogni directory di UNIX contiene due directory specia
 \end{center}
 Ogni percorso che inizia con la barra viene considerato \textbf{assoluto}, cioe' relativo
 alla radice, mentre se inizia con qualsiasi altro carattere viene considerato relativo
-alla directory corrente.
+alla directory corrente.\\
 
 \subparagraph{\textbf{Tip}}
 	Il comando \texttt{cd -} permette di tornare alla directory precedente l'ultima chiamata di \texttt{cd}.
@@ -135,7 +133,7 @@ contrassegnate da \emph{meta-caratteri}, i quali non vengono presi a valore nomi
 Interpreta il significato della sequenza speciale, sostituendo il risultato 
 dell'interpretazione al posto della sequenza. Viene cosi creata una riga di comando
 differente da quella digitata. Se un'espansione fallisce la sequenza e' solitamente
-lasciata inalterata sulla riga di comando.
+lasciata inalterata sulla riga di comando.\\
 
 Ci sono ben \textbf{12 passi} che svolgono tipologie di manipolazioni diverse della riga
 di comando, in una sequenza precisa. Alcuni/tutti questi passi possono essere
@@ -182,7 +180,7 @@ Come per il passo 2, questo non viene eseguito per porzioni racchiuse da doppi a
 L'espansione delle parentesi viene utilizzata per generare stringhe arbitrarie.
 Permette infatti di creare argomenti multipli, a partire da un singolo argomento di 
 command line. Le stringhe specificate vengono utilizzate per creare tutte le possibili 
-combinazioni, alle quali e' possibile associare un preamnolo e un postscript.
+combinazioni, alle quali e' possibile associare un preambolo e un postscript.
 Il preambolo viene prefisso a ogni stringa contenuta fra le parentesi, successivamente,
 a queste viene aggiungo il postscript come suffisso, espandendo da sinistra a destra.
 
@@ -225,7 +223,7 @@ di riga racchiuse tra doppi apici.
 \subparagraph{8 - Arithmetic expansion}
 Il token \texttt{((expr))} viene sostituito col risultato della valutazione di 
 \texttt{expr}, un'espressione aritmetica. \texttt{expr} viene trattata come se fosse
-racchiusa tra doppi apici (quindi subisce solo i passi 6 e 7) 
+racchiusa tra doppi apici (quindi subisce solo i passi 6 e 7).\\ 
 Questi quattro passaggi (6..9) sono eseguiti anche sulle parti 
 di riga racchiuse tra doppi apici.
 
@@ -294,7 +292,6 @@ E' possibile alterare l'ordine di default con i seguenti meccanismi:
 		l'esecuzione del builtin specificato, se esite.
 	\item comando \texttt{unalias}: cancella un alias definito in precedenza
 \end{itemize}
-
 Per quanto riguarda invece i comandi esterni, la shell utilizza tra le variabili di ambiente comuni,
 la variable \texttt{\$PATH} per eseguire la ricerca dei comandi nel filesystem. La sua struttura e' quella
 di un elenco di directory separate da carattere "\textbf{:}".
@@ -312,9 +309,6 @@ $ which passwd
 \end{lstlisting}
 Per consentire automaticamente l'esecuzione di programmi presenti in una determinata directory, il percorso
 di questa deve essere presente nella variable d'ambiente \texttt{\$PATH}.
-
 \textbf{Tip:} non e' buona norma inserire intere directory nella variable \texttt{\$PATH}, e' 
 sempre meglio utilizzare
 percorsi espliciti cosi' da non incorrere in errori inaspettati.
-
-

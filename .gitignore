@@ -1,13 +1,22 @@
 # LaTeX ignore patterns
-University/**/*.aux
-University/**/*.dvi
-University/**/*.bak
-University/**/*.gz
-University/**/*.out 
-University/**/*.nav 
-University/**/*.log 
-University/**/*.fls 
-University/**/*.snm 
-University/**/*.toc 
-University/**/*.fdb* 
-University/**/*.aux
+SystemAdministration/**/*.aux
+SystemAdministration/**/*.dvi
+SystemAdministration/**/*.bak
+SystemAdministration/**/*.gz
+SystemAdministration/**/*.out 
+SystemAdministration/**/*.nav 
+SystemAdministration/**/*.log 
+SystemAdministration/**/*.fls 
+SystemAdministration/**/*.snm 
+SystemAdministration/**/*.toc 
+SystemAdministration/**/*.fdb* 
+SystemAdministration/**/*.aux
+
+
+
+
+
+
+
+# Makefile
+Makefile
